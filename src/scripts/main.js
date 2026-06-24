@@ -60,16 +60,40 @@ window.onYouTubeIframeAPIReady = function () {
 
 function startYouTube() {
   if (ytPlayer && ytPlayer.playVideo) {
-    ytPlayer.playVideo();
+    doPlay();
   } else {
     const check = setInterval(() => {
       if (ytPlayer && ytPlayer.playVideo) {
-        ytPlayer.playVideo();
+        doPlay();
         clearInterval(check);
       }
     }, 200);
     setTimeout(() => clearInterval(check), 10000);
   }
+}
+
+function doPlay() {
+  const promise = ytPlayer.playVideo();
+  if (promise && promise.catch) {
+    promise.catch(() => {
+      ytPlayer.mute();
+      ytPlayer.playVideo();
+      showUnmuteBtn();
+    });
+  }
+}
+
+function showUnmuteBtn() {
+  const btn = document.createElement('button');
+  btn.id = 'unmute-btn';
+  btn.textContent = '🔇 Activar sonido';
+  btn.style.cssText = 'position:fixed;bottom:24px;right:24px;z-index:9999;padding:10px 18px;border:1px solid rgba(255,255,255,0.2);border-radius:8px;background:rgba(13,13,13,0.85);color:#e0dcef;font-family:inherit;font-size:14px;cursor:pointer;backdrop-filter:blur(6px);';
+  document.body.appendChild(btn);
+  btn.addEventListener('click', () => {
+    ytPlayer.unMute();
+    ytPlayer.setVolume(30);
+    btn.remove();
+  });
 }
 
 /* ── Custom cursor glow ── */

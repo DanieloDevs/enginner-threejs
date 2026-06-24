@@ -12,10 +12,10 @@ export function initScene3D() {
   const fallback = document.getElementById('three-fallback');
   if (!container) return;
 
-  const isMobile = window.innerWidth < 768;
-  const isLowPerf = isMobile || !checkWebGL();
+  const isTiny = window.innerWidth < 480;
+  const hasWebGL = checkWebGL();
 
-  if (isLowPerf) {
+  if (!hasWebGL) {
     if (fallback) fallback.classList.add('fallback-active');
     return;
   }
@@ -33,7 +33,7 @@ export function initScene3D() {
 
   renderer = new THREE.WebGLRenderer({
     alpha: true,
-    antialias: !isMobile,
+    antialias: !isTiny,
     powerPreference: 'low-power',
   });
   renderer.setSize(width, height);
@@ -42,7 +42,7 @@ export function initScene3D() {
   container.appendChild(renderer.domElement);
 
   // ── Particle system ──
-  const count = isMobile ? 1000 : 3000;
+  const count = isTiny ? 600 : 3000;
   const positions = new Float32Array(count * 3);
   const colors = new Float32Array(count * 3);
   const sizes = new Float32Array(count);
