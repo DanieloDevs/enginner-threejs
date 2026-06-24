@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Like Animals — INWED 2026</title>
+  <meta name="description" content="Una pieza interactiva para el Día Internacional de la Mujer en la Ingeniería." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='28' font-size='28'>🐾</text></svg>" />
+  <script>document.documentElement.classList.remove('no-js');</script>
+  <script type="module" crossorigin src="/assets/index-v5RCOkD8.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/gsap-CzGW6FVa.js">
+  <link rel="modulepreload" crossorigin href="/assets/three-6uviXhus.js">
+  <link rel="stylesheet" crossorigin href="/assets/index-sq4M6Hq9.css">
+</head>
+<body>
+
+  <!-- ── Elementos globales ── -->
+  <div id="cursor-glow" aria-hidden="true"></div>
+  <div id="cursor-dot" aria-hidden="true"></div>
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <div class="ambient-orb ambient-orb-1" aria-hidden="true"></div>
+  <div class="ambient-orb ambient-orb-2" aria-hidden="true"></div>
+  <div class="ambient-orb ambient-orb-3" aria-hidden="true"></div>
+
+  <!-- ════════════════════════════════════════════════ -->
+  <!-- 1. TERMINAL DE ENTRADA                          -->
+  <!-- ════════════════════════════════════════════════ -->
+  <section id="terminal" role="dialog" aria-label="Terminal de inicio">
+    <div id="terminal-window">
+      <div id="terminal-header">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+        <span id="terminal-title">visitor@daniel:~
+      </div>
+      <div id="terminal-body">
+        <p><span class="prompt">visitor@daniel:~$</span> <span id="typed-command"></span><span id="cursor" aria-hidden="true">▊</span></p>
+        <div id="terminal-log" aria-live="polite"></div>
+        <div id="loading-bar-wrap"><div id="loading-bar"></div></div>
+        <div id="terminal-actions">
+          <button id="btn-start" class="cmd-btn" type="button">
+            <span class="prompt">visitor@daniel:~$</span> ./start.sh
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════ -->
+  <!-- 2. HERO CON PARALLAX                            -->
+  <!-- ════════════════════════════════════════════════ -->
+  <section id="hero" aria-label="Hero principal">
+    <div id="parallax-container">
+      <div class="parallax-layer" data-depth="0.08" id="pl-bg"></div>
+      <div class="parallax-layer" data-depth="0.2" id="pl-mid"></div>
+      <div class="parallax-layer" data-depth="0.4" id="pl-fg"></div>
+
+      <!-- Floating shapes -->
+      <div class="floating-shape shape-1" aria-hidden="true"></div>
+      <div class="floating-shape shape-2" aria-hidden="true"></div>
+      <div class="floating-shape shape-3" aria-hidden="true"></div>
+      <div class="floating-shape shape-4" aria-hidden="true"></div>
+      <div class="floating-shape shape-5" aria-hidden="true"></div>
+
+      <div class="parallax-layer" data-depth="0.7" id="pl-text">
+        <div id="hero-content">
+          <h1 id="hero-title">
+            <span class="line line-1" data-split>Feliz Día de la Ingeniera, Ale</span>
+            <span class="line line-2">— 23 de Junio —</span>
+          </h1>
+        </div>
+      </div>
+      <div id="scroll-indicator" aria-hidden="true">
+        <span>↧ scroll ↧</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════ -->
+  <!-- 3. ESCENA 3D (Three.js)                         -->
+  <!-- ════════════════════════════════════════════════ -->
+  <section id="scene-3d" aria-label="Escena interactiva 3D">
+    <div id="three-container">
+      <div id="three-fallback" class="fallback-active">
+        <div class="fallback-grid"></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider" aria-hidden="true">contenido</div>
+
+  <!-- ════════════════════════════════════════════════ -->
+  <!-- 4. CONTENIDO PERSONAL                           -->
+  <!-- ════════════════════════════════════════════════ -->
+  <section id="content" aria-label="Contenido personal">
+    <div class="content-inner">
+      <div class="content-block">
+        <h2 data-split>¿Por qué hoy?</h2>
+        <p>Hoy es el día de la ingeniera. Y no hay mejor fecha para decirte esto.</p>
+        <p>Sé que eres muy inteligente y sé que no nos hemos podido ver, pero quiero decirte que <strong>tú puedes</strong>. Que no te achicopales. Échale muchas ganas, no te rindas. Te falta nada para salir — tú puedes. Jamás te rindas por el objetivo que tengas. No importa si ejerces o no, lo importante es que aprendas mucho.</p>
+        <p>Te quiero mucho, me gustas mucho, y quiero desearte feliz día de la ingeniera de la forma que yo sé realizarlo.</p>
+      </div>
+      <div class="content-block">
+        <h2 data-split>Algo que me gusta de ti</h2>
+        <p>Me gusta que eres <strong>inteligente</strong>, <strong>gentil</strong>, <strong>amable</strong>, y muy <strong>linda</strong>. Me causas mucha felicidad al hablar contigo. Me gusta lo espontánea que eres.</p>
+        <p>Eres una gran ingeniera — y vas a ser de las más grandes. De eso no tengo ninguna duda.</p>
+      </div>
+      <div class="content-block">
+        <h2 data-split>Inspiración</h2>
+        <p>La paleta y el mood de esta página evocan el concepto de <em>soltar el control, lo instintivo, lo salvaje</em>. Porque la ingeniería no es solo lógica y precisión — también es intuición, creatividad, y la valentía de construir algo que no existía antes.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider" aria-hidden="true">explorar</div>
+
+  <!-- ════════════════════════════════════════════════ -->
+  <!-- 5. EASTER EGG / API MOCK                        -->
+  <!-- ════════════════════════════════════════════════ -->
+  <section id="api-section" aria-label="API mock y easter egg">
+    <div class="content-inner">
+      <h2>&gt;_ /api/match</h2>
+      <p class="subtitle">Endpoints disponibles para explorers curiosos</p>
+      <button id="btn-api" class="api-btn" type="button">
+        <span>$ curl -X GET /api/match</span>
+      </button>
+      <div id="api-response" class="response-panel" hidden>
+        <div class="response-header">
+          <span class="status-badge">200 OK</span>
+          <span class="response-time">0.42ms</span>
+        </div>
+        <pre id="response-json"><code></code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════ -->
+  <!-- 6. CIERRE / CTA                                 -->
+  <!-- ════════════════════════════════════════════════ -->
+  <section id="closing" aria-label="Cierre">
+    <div class="content-inner">
+      <div id="closing-content" class="closing-content">
+        <h2 class="closing-title" data-split>Te quiero mucho</h2>
+        <p class="closing-sub">
+          Sé que lo puedes conseguir. Solo un último paso. Tú puedes.
+          <br/>
+          Estoy orgulloso de que no te hayas rendido.
+        </p>
+        <div id="closing-reveal" aria-hidden="true">
+          <span class="sparkle"></span>
+          <span class="sparkle"></span>
+          <span class="sparkle"></span>
+          <span class="sparkle"></span>
+          <span class="sparkle"></span>
+          <span class="sparkle"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════ -->
+  <!-- FOOTER                                          -->
+  <!-- ════════════════════════════════════════════════ -->
+  <footer>
+    <p>Hecho con <span style="color:var(--accent-magenta)">♥</span> — 23 de junio de 2026 · INWED</p>
+  </footer>
+
+  <!-- YouTube player oculto -->
+  <div id="youtube-player" aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden;"></div>
+
+</body>
+</html>
