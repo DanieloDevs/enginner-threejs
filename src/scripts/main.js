@@ -73,17 +73,17 @@ function startYouTube() {
 }
 
 function doPlay() {
+  ytPlayer.mute();
   const promise = ytPlayer.playVideo();
+  showUnmuteBtn();
   if (promise && promise.catch) {
-    promise.catch(() => {
-      ytPlayer.mute();
-      ytPlayer.playVideo();
-      showUnmuteBtn();
-    });
+    promise.catch(() => {});
   }
 }
 
 function showUnmuteBtn() {
+  const existing = document.getElementById('unmute-btn');
+  if (existing) return;
   const btn = document.createElement('button');
   btn.id = 'unmute-btn';
   btn.textContent = '🔇 Activar sonido';
