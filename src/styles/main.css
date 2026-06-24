@@ -1120,37 +1120,176 @@ footer {
 }
 
 /* ════════════════════════════════════════════════════ */
-/* RESPONSIVE                                          */
+/* RESPONSIVE — TODOS LOS DISPOSITIVOS                 */
 /* ════════════════════════════════════════════════════ */
+
+/* ── Tablets landscape / small laptops (768px-1024px) ── */
+@media (max-width: 1024px) {
+  :root {
+    --section-py: clamp(3.5rem, 10vh, 6rem);
+  }
+  #hero { min-height: 550px; }
+  .line-1 { font-size: clamp(2rem, 5.5vw, 3.5rem); }
+  .content-block { padding: 2rem; }
+  .ambient-orb-1 { width: 350px; height: 350px; }
+  .ambient-orb-2 { width: 300px; height: 300px; }
+  .ambient-orb-3 { width: 250px; height: 250px; }
+  #scene-3d { height: 70vh; min-height: 400px; }
+}
+
+/* ── Tablets portrait (600px-768px) ── */
 @media (max-width: 768px) {
   body { cursor: auto; }
   #cursor-glow, #cursor-dot { display: none !important; }
-  #terminal-body { padding: 20px; font-size: 0.78rem; min-height: 200px; }
-  #terminal-window { width: 95vw; }
+  :root { --section-py: clamp(3rem, 8vh, 4.5rem); }
+
+  #terminal-body { padding: 18px; font-size: 0.78rem; min-height: 200px; }
+  #terminal-window { width: 94vw; border-radius: 12px; }
+  #terminal-window::before { display: none; }
   .cmd-btn { font-size: 0.75rem; padding: 10px 16px; }
+
+  #hero { min-height: 500px; }
+  #hero-content { padding: 1.5rem; }
+  .line-1 { font-size: clamp(1.8rem, 5vw, 2.8rem); }
+  .line-2 { font-size: clamp(0.75rem, 1.8vw, 1rem); letter-spacing: 0.25em; }
+  #hero-title { gap: 0.5rem; }
+
   #scene-3d { height: 55vh; min-height: 350px; }
-  .content-block { padding: 1.5rem; margin-bottom: 3rem; }
-  .content-block h2::after { width: 40px; }
+
+  #content { padding: var(--section-py) 1.2rem; }
+  .content-block { padding: 1.5rem; margin-bottom: 3rem; border-radius: 16px; }
+  .content-block h2 { font-size: clamp(1.3rem, 3vw, 1.8rem); }
+  .content-block h2::after { width: 35px; }
+  .content-block:hover { transform: none; }
+
+  #api-section, #closing { padding: var(--section-py) 1.2rem; }
+  .closing-title { font-size: clamp(1.5rem, 5vw, 2.5rem); }
+
   .ambient-orb { filter: blur(60px); }
-  .ambient-orb-1 { width: 300px; height: 300px; }
-  .ambient-orb-2 { width: 250px; height: 250px; }
-  .ambient-orb-3 { width: 200px; height: 200px; }
+  .ambient-orb-1 { width: 250px; height: 250px; }
+  .ambient-orb-2 { width: 200px; height: 200px; }
+  .ambient-orb-3 { width: 180px; height: 180px; }
+
+  .section-divider { padding: 0.8rem 1rem; }
 }
 
-@media (max-width: 480px) {
-  #terminal-body { padding: 16px; font-size: 0.7rem; min-height: 180px; }
-  #terminal-window { width: 97vw; border-radius: 10px; }
+/* ── Phones grandes / phablets (430px-600px) ── */
+@media (max-width: 600px) {
+  :root { --section-py: clamp(2.5rem, 7vh, 3.5rem); }
+
+  #terminal-body { padding: 16px; font-size: 0.75rem; min-height: 190px; }
   #terminal-header { padding: 10px 14px; }
-  .dot { width: 8px; height: 8px; }
-  #terminal-title { font-size: 0.6rem; }
-  .cmd-btn { font-size: 0.7rem; padding: 8px 14px; }
-  #scene-3d { height: 40vh; min-height: 280px; }
-  .content-block { padding: 1.2rem; border-radius: 14px; }
+  .dot { width: 9px; height: 9px; }
+
+  #hero { min-height: 450px; }
+  .line-1 { font-size: clamp(1.6rem, 6vw, 2.2rem); }
+  .line-2 { font-size: clamp(0.65rem, 2vw, 0.85rem); letter-spacing: 0.2em; }
+  #hero-content::before { display: none; }
+  #scroll-indicator { font-size: 0.65rem; bottom: 1.5rem; }
+
+  .floating-shape { display: none; }
+
+  #scene-3d { height: 50vh; min-height: 300px; }
+
+  .content-block { padding: 1.2rem; margin-bottom: 2.5rem; }
+  .content-block p { font-size: 0.95rem; line-height: 1.8; }
+
+  .api-btn { padding: 12px 20px; font-size: 0.8rem; width: 100%; justify-content: center; }
+  .response-panel { border-radius: 10px; }
+  #response-json { padding: 14px; font-size: 0.7rem; }
+
+  .closing-title { font-size: clamp(1.3rem, 6vw, 2rem); }
+  .closing-sub { font-size: clamp(0.9rem, 2.5vw, 1.1rem); }
+  #closing-reveal { height: 70px; margin-top: 2rem; }
+  .sparkle { width: 3px; height: 3px; }
+  #closing-reveal .sparkle:nth-child(7),
+  #closing-reveal .sparkle:nth-child(8) { display: none; }
+
+  footer { padding: 2rem 1rem; font-size: 0.75rem; }
+
   .ambient-orb { display: none; }
   #scroll-progress { height: 2px; }
-  .floating-shape { display: none; }
 }
 
+/* ── Phones pequeños (375px-430px) ── */
+@media (max-width: 430px) {
+  #terminal-body { padding: 14px; font-size: 0.72rem; min-height: 180px; }
+  #terminal-window { width: 96vw; border-radius: 10px; }
+  #terminal-header { padding: 8px 12px; }
+  .dot { width: 8px; height: 8px; }
+  #terminal-title { font-size: 0.55rem; }
+  .log-line { font-size: 0.72rem; line-height: 1.7; }
+  .cmd-btn { font-size: 0.68rem; padding: 8px 12px; margin-top: 12px; }
+
+  #hero { min-height: 400px; height: 90vh; }
+  .line-1 { font-size: clamp(1.3rem, 7vw, 1.8rem); }
+  .line-2 { font-size: clamp(0.6rem, 2.5vw, 0.75rem); letter-spacing: 0.15em; }
+
+  #scene-3d { height: 45vh; min-height: 250px; }
+
+  .content-block { padding: 1rem; margin-bottom: 2rem; border-radius: 12px; }
+  .content-block h2 { font-size: clamp(1.1rem, 4vw, 1.4rem); }
+  .content-block h2::after { width: 30px; height: 2px; bottom: -4px; }
+  .content-block p { font-size: 0.9rem; line-height: 1.75; }
+  .content-block p + p { margin-top: 0.8rem; }
+
+  #api-section h2 { font-size: clamp(1rem, 4vw, 1.2rem); }
+  .subtitle { font-size: 0.8rem; }
+
+  .api-btn { padding: 10px 16px; font-size: 0.75rem; border-radius: 8px; }
+  .response-header { padding: 10px 14px; font-size: 0.7rem; }
+  #response-json { padding: 12px; font-size: 0.65rem; }
+
+  .closing-title { font-size: clamp(1.2rem, 7vw, 1.6rem); }
+  .closing-sub { font-size: clamp(0.85rem, 3vw, 1rem); }
+  #closing-reveal { height: 60px; }
+  .sparkle { width: 2px; height: 2px; }
+
+  .section-divider { font-size: 0.55rem; gap: 10px; padding: 0.6rem 0.8rem; }
+  .section-divider::before, .section-divider::after { max-width: 60px; }
+
+  footer { padding: 1.5rem 1rem; font-size: 0.7rem; }
+}
+
+/* ── Phones extra pequeños (hasta 375px) ── */
+@media (max-width: 375px) {
+  #terminal-body { padding: 12px; font-size: 0.68rem; min-height: 160px; }
+  #terminal-window { border-radius: 8px; }
+  #terminal-header { padding: 6px 10px; }
+  .dot { width: 6px; height: 6px; }
+  .cmd-btn { font-size: 0.62rem; padding: 6px 10px; }
+
+  #hero { min-height: 350px; height: 85vh; }
+  .line-1 { font-size: clamp(1.1rem, 8vw, 1.5rem); }
+  .line-2 { font-size: clamp(0.5rem, 3vw, 0.65rem); letter-spacing: 0.1em; }
+
+  #scene-3d { height: 40vh; min-height: 220px; }
+
+  .content-block { padding: 0.8rem; margin-bottom: 1.5rem; border-radius: 10px; }
+  .content-block h2 { font-size: clamp(1rem, 4.5vw, 1.2rem); }
+  .content-block h2::after { width: 25px; }
+  .content-block p { font-size: 0.82rem; line-height: 1.7; }
+
+  .closing-title { font-size: clamp(1rem, 8vw, 1.3rem); }
+  .closing-sub { font-size: clamp(0.8rem, 3.5vw, 0.9rem); }
+
+  .api-btn { padding: 8px 14px; font-size: 0.7rem; }
+  .response-header { padding: 8px 12px; }
+  #response-json { padding: 10px; font-size: 0.6rem; }
+}
+
+/* ── Móvil landscape ── */
+@media (max-height: 500px) and (orientation: landscape) {
+  #hero { min-height: 300px; height: 100vh; }
+  #hero-content { padding: 1rem; }
+  .line-1 { font-size: clamp(1rem, 4vw, 1.8rem); }
+  .line-2 { font-size: clamp(0.5rem, 1.5vw, 0.7rem); letter-spacing: 0.1em; }
+  #scroll-indicator { display: none; }
+  .floating-shape { display: none; }
+  #scene-3d { height: 80vh; min-height: 300px; }
+}
+
+/* ── Menos movimiento ── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
